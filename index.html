@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Khyonn" />
+    <meta
+      name="title"
+      content="Ohmyfood! Site de composition de menu et de réservations de restaurants"
+    />
+    <meta
+      name="description"
+      content="Intégration d'une maquette avec animations, troisième projet du parcous Développeur Front-end d'OpenClassrooms"
+    />
+    <link rel="stylesheet" href="/assets/styles/fontawesome.css" />
+    <title>Ohmyfood!</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a id="brand-link" href="/">
+          <img
+            src="/assets/images/logo/ohmyfood.png"
+            srcset="/assets/images/logo/ohmyfood@2x.svg"
+            alt="Logo Ohmyfood"
+          />
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <form id="location">
+        <span><i class="fas fa-map-marker-alt"></i></span>
+        <input type="text" aria-label="Location" />
+      </form>
+
+      <section id="introduction">
+        <h1>Réservez le menu qui vous convient</h1>
+        <p>Découvre des restaurants d'exception, séléctionnés par nos soins.</p>
+        <button>Explorer nos restaurants</button>
+      </section>
+
+      <section id="usage-process">
+        <h1>Fonctionnement</h1>
+        <ul>
+          <li><i class="fas fa-mobile-alt"></i>Choississez un restaurant</li>
+          <li><i class="fas fa-list-ul"></i>Composez votre menu</li>
+          <li><i class="fas fa-store"></i>Dégustez au restaurant</li>
+        </ul>
+      </section>
+
+      <section id="restaurants">
+        <h1>Restaurants</h1>
+        <article>
+          <a href="/menu.html">
+            <h2>La palette du goût</h2>
+            <p>Ménilmontant</p>
+          </a>
+          <span>
+            <input type="checkbox" name="like-button" id="restaurant_1" />
+            <label for="restaurant_1"
+              ><i class="far fa-heart"></i> <i class="fas fa-heart"></i
+            ></label>
+          </span>
+        </article>
+        <article>
+          <a href="/menu.html">
+            <h2>La note enchantée</h2>
+            <p>Charonne</p>
+          </a>
+          <span>
+            <input type="checkbox" name="like-button" id="restaurant_2" />
+            <label for="restaurant_2"
+              ><i class="far fa-heart"></i> <i class="fas fa-heart"></i
+            ></label>
+          </span>
+        </article>
+        <article>
+          <a href="/menu.html">
+            <h2>A la française</h2>
+            <p>Cité Rouge</p>
+          </a>
+          <span>
+            <input type="checkbox" name="like-button" id="restaurant_3" />
+            <label for="restaurant_3"
+              ><i class="far fa-heart"></i> <i class="fas fa-heart"></i
+            ></label>
+          </span>
+        </article>
+        <article>
+          <a href="/menu.html">
+            <h2>Le délice des sens</h2>
+            <p>Folie-Méricourt</p>
+          </a>
+          <span>
+            <input type="checkbox" name="like-button" id="restaurant_4" />
+            <label for="restaurant_4"
+              ><i class="far fa-heart"></i> <i class="fas fa-heart"></i
+            ></label>
+          </span>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <ul>
+        <li>
+          <a href="#"><i class="fas fa-utensils"></i> Proposer un restaurant</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-hands-helping"></i>Devenir partenaire</a>
+        </li>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="mailto:contact@ohmyfood.com">Contact</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

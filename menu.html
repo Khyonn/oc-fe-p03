@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Khyonn" />
+    <meta
+      name="title"
+      content="Ohmyfood! Site de composition de menu et de réservations de restaurants"
+    />
+    <meta
+      name="description"
+      content="Intégration d'une maquette avec animations, troisième projet du parcous Développeur Front-end d'OpenClassrooms"
+    />
+    <title>Ohmyfood!</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a id="brand-link" href="/">
+          <img
+            src="/assets/images/logo/ohmyfood.png"
+            srcset="/assets/images/logo/ohmyfood@2x.svg"
+            alt="Logo Ohmyfood"
+          />
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <img
+        src="/assets/images/restaurants/a-la-francaise.jpg"
+        alt="Plat de présentation de restaurant 1"
+      />
+
+      <form action="/menu.html">
+        <h1>Nom du restaurant</h1>
+        <section id="starter">
+          <h2>Entrée</h2>
+          <ul>
+            <li>
+              <input
+                type="radio"
+                name="starter"
+                id="starter_1"
+                value="starter_1"
+              /><label for="starter_1">Entree 1</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="starter"
+                id="starter_2"
+                value="starter_2"
+              /><label for="starter_2">Entree 2</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="starter"
+                id="starter_3"
+                value="starter_3"
+              /><label for="starter_3">Entree 3</label>
+            </li>
+          </ul>
+        </section>
+
+        <section id="main-dish">
+          <h2>Plat</h2>
+          <ul>
+            <li>
+              <input
+                type="radio"
+                name="main_dish"
+                id="main_dish_1"
+                value="main_dish_1"
+              /><label for="main_dish_1">Plat 1</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="main_dish"
+                id="main_dish_2"
+                value="main_dish_2"
+              /><label for="main_dish_2">Plat 2</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="main_dish"
+                id="main_dish_3"
+                value="main_dish_3"
+              /><label for="main_dish_3">Plat 3</label>
+            </li>
+          </ul>
+        </section>
+
+        <section id="dessert">
+          <h2>Dessert</h2>
+          <ul>
+            <li>
+              <input
+                type="radio"
+                name="dessert"
+                id="dessert_1"
+                value="dessert_1"
+              /><label for="dessert_1">Dessert 1</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="dessert"
+                id="dessert_2"
+                value="dessert_2"
+              /><label for="dessert_2">Dessert 2</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="dessert"
+                id="dessert_3"
+                value="dessert_3"
+              /><label for="dessert_3">Dessert 3</label>
+            </li>
+          </ul>
+        </section>
+        <button type="submit">Commander</button>
+      </form>
+    </main>
+
+    <footer>
+      <ul>
+        <li>
+          <a href="#"><i class="fas fa-utensils"></i> Proposer un restaurant</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-hands-helping"></i>Devenir partenaire</a>
+        </li>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="mailto:contact@ohmyfood.com">Contact</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
