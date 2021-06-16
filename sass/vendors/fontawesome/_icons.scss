@@ -25,3 +25,6 @@ readers do not read off random characters that represent icons */
 .#{$fa-css-prefix}-check-circle:before {
   content: fa-content($fa-var-check-circle);
 }
+.#{$fa-css-prefix}-arrow-left:before {
+  content: fa-content($fa-var-arrow-left);
+}
