@@ -13,12 +13,17 @@
       name="description"
       content="Intégration d'une maquette avec animations, troisième projet du parcous Développeur Front-end d'OpenClassrooms"
     />
+    <link rel="stylesheet" href="/assets/styles/vendor.css" />
+    <link rel="stylesheet" href="/assets/styles/common.css" />
     <title>Ohmyfood!</title>
   </head>
   <body>
     <header>
-      <nav>
-        <a id="brand-link" href="/">
+      <nav class="main-nav">
+        <a class="main-nav__forward-link" href="/">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <a class="main-nav__brand-link" href="/">
           <img
             src="/assets/images/logo/ohmyfood.png"
             srcset="/assets/images/logo/ohmyfood@2x.svg"
@@ -130,15 +135,28 @@
     </main>
 
     <footer>
-      <ul>
-        <li>
-          <a href="#"><i class="fas fa-utensils"></i> Proposer un restaurant</a>
+      <h1 class="title-text">Ohmyfood</h1>
+      <ul class="util-links">
+        <li class="util-links__item">
+          <a href="#">
+            <span class="util-links__item-icon">
+              <i class="fas fa-utensils"></i>
+            </span>
+            <span>Proposer un restaurant</span>
+          </a>
         </li>
-        <li>
-          <a href="#"><i class="fas fa-hands-helping"></i>Devenir partenaire</a>
+        <li class="util-links__item">
+          <a href="#">
+            <span class="util-links__item-icon">
+              <i class="fas fa-hands-helping"></i>
+            </span>
+            <span>Devenir partenaire</span>
+          </a>
         </li>
-        <li><a href="#">Mentions légales</a></li>
-        <li><a href="mailto:contact@ohmyfood.com">Contact</a></li>
+        <li class="util-links__item"><a href="#">Mentions légales</a></li>
+        <li class="util-links__item">
+          <a href="mailto:contact@ohmyfood.com">Contact</a>
+        </li>
       </ul>
     </footer>
   </body>

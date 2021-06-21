@@ -1,0 +1,33 @@
+@import "../utils/variables";
+
+@mixin fontFace($family, $url, $font-weight) {
+  @font-face {
+    font-family: $family;
+    src: url($url) format("truetype");
+    @if ($font-weight) {
+      font-weight: $font-weight;
+    }
+  }
+}
+
+@mixin robotoFont($face, $font-weight) {
+  @include fontFace(
+    $main-fontfamily,
+    "#{$font-directory}/roboto/roboto-#{$face}.ttf",
+    $font-weight
+  );
+}
+$font-sizes: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+);
+@each $face, $value in $font-sizes {
+  @include robotoFont($face, $value);
+}
+
+@include fontFace(
+  $accent-fontfamily,
+  "#{$font-directory}/shrikhand/shrikhand-regular.ttf",
+  null
+);

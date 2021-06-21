@@ -1,0 +1,33 @@
+@import "../utils/variables";
+
+footer {
+  background-color: $bg-color-dark;
+  color: white;
+  padding: 1em;
+
+  h1 {
+    font-size: 1.2em;
+    text-transform: lowercase;
+    margin-top: 0;
+    margin-bottom: 0.67em;
+  }
+  .util-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    &__item {
+      margin: 0.4em;
+      &-icon {
+        position: absolute;
+        & + * {
+          display: inline-block;
+          margin-left: 2em;
+        }
+      }
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
