@@ -1,0 +1,60 @@
+@import "../utils/variables";
+@import "../utils/hidden-input";
+
+@mixin liked_state {
+  .heart-button {
+    &__empty {
+      opacity: 0;
+    }
+    &__filled {
+      opacity: 1;
+    }
+  }
+}
+
+.heart-button {
+  input[type="checkbox"] {
+    @include hidden-input;
+
+    &:checked {
+      + label {
+        @include liked_state;
+      }
+    }
+    &:focus {
+      + label {
+        .heart-button__empty {
+          color: $primary-color;
+        }
+        text-shadow: 0 0 1em $primary-color;
+      }
+    }
+    + label {
+      cursor: pointer;
+      position: relative;
+      &:hover {
+        @include liked_state;
+      }
+      .heart-button {
+        &__empty {
+          opacity: 1;
+          transition: opacity 0.2s ease-in-out;
+        }
+        &__filled {
+          position: absolute;
+          left: 0;
+          transition: opacity 0.2s ease-in-out;
+          opacity: 0;
+          background-image: linear-gradient(
+            225deg,
+            $primary-color,
+            $secondary-color
+          );
+          background-clip: text;
+          -webkit-background-clip: text; // TODO: supprimer cette ligne et utiliser autoprefixer
+          color: transparent;
+        }
+      }
+    }
+  }
+}

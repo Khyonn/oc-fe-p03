@@ -1,6 +1,8 @@
+@import "../utils/shadow";
+
 .main-nav {
   height: 4em;
-  box-shadow: 0 0 0.3125em lighten(black, 60%);
+  @include shadow-bottom;
 
   display: flex;
   justify-content: center;

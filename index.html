@@ -15,6 +15,7 @@
     />
     <link rel="stylesheet" href="/assets/styles/vendor.css" />
     <link rel="stylesheet" href="/assets/styles/common.css" />
+    <link rel="stylesheet" href="/assets/styles/home.css" />
     <title>Ohmyfood!</title>
   </head>
   <body>
@@ -31,73 +32,173 @@
     </header>
 
     <main>
-      <form id="location">
+      <form id="location" class="location-form">
         <span><i class="fas fa-map-marker-alt"></i></span>
-        <input type="text" aria-label="Location" />
+        <input
+          class="location-form__field"
+          type="text"
+          value="Paris, Belleville"
+          aria-label="Location"
+          disabled
+        />
       </form>
 
-      <section id="introduction">
+      <section id="introduction" class="introduction">
         <h1>Réservez le menu qui vous convient</h1>
-        <p>Découvre des restaurants d'exception, séléctionnés par nos soins.</p>
-        <button>Explorer nos restaurants</button>
+        <p>
+          Découvrez des restaurants d'exception, séléctionnés par nos soins.
+        </p>
+        <a href="#restaurants" role="button" class="button"
+          >Explorer nos restaurants</a
+        >
       </section>
 
       <section id="usage-process">
         <h1>Fonctionnement</h1>
-        <ul>
-          <li><i class="fas fa-mobile-alt"></i>Choississez un restaurant</li>
-          <li><i class="fas fa-list-ul"></i>Composez votre menu</li>
-          <li><i class="fas fa-store"></i>Dégustez au restaurant</li>
+        <ul class="step-list">
+          <li class="step-list__item">
+            <span class="step-list__item-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </span>
+            Choississez un restaurant
+          </li>
+          <li class="step-list__item">
+            <span class="step-list__item-icon">
+              <i class="fas fa-list-ul"></i>
+            </span>
+            Composez votre menu
+          </li>
+          <li class="step-list__item step-list__item--active">
+            <span class="step-list__item-icon">
+              <i class="fas fa-store"></i>
+            </span>
+            Dégustez au restaurant
+          </li>
         </ul>
       </section>
 
       <section id="restaurants">
         <h1>Restaurants</h1>
-        <article>
-          <a href="/menu.html">
-            <h2>La palette du goût</h2>
-            <p>Ménilmontant</p>
+        <article class="card">
+          <a class="card__link" href="/menu.html">
+            <div class="card__image-container">
+              <img
+                class="card__image"
+                src="/assets/images/restaurants/la-palette-du-gout.jpg"
+                alt="Plat de La palette du goût"
+              />
+            </div>
+            <div class="card__description-container">
+              <h2>La palette du goût</h2>
+              <p>Ménilmontant</p>
+            </div>
+            <span class="badge badge--success badge--blinking">Nouveau</span>
           </a>
-          <span>
-            <input type="checkbox" name="like-button" id="restaurant_1" />
-            <label for="restaurant_1"
-              ><i class="far fa-heart"></i> <i class="fas fa-heart"></i
+          <span class="heart-button">
+            <input
+              aria-label="Ajouter La palettedu goût aux restaurants favoris"
+              type="checkbox"
+              name="like-button"
+              id="restaurant_1"
+            />
+            <label for="restaurant_1">
+              <span class="heart-button__empty">
+                <i class="far fa-heart"></i>
+              </span>
+              <span class="heart-button__filled">
+                <i class="fas fa-heart"></i> </span
             ></label>
           </span>
         </article>
-        <article>
-          <a href="/menu.html">
-            <h2>La note enchantée</h2>
-            <p>Charonne</p>
+        <article class="card">
+          <a class="card__link" href="/menu.html">
+            <div class="card__image-container">
+              <img
+                class="card__image"
+                src="/assets/images/restaurants/la-note-enchantee.jpg"
+                alt="Plat de La note enchantée"
+              />
+            </div>
+            <div class="card__description-container">
+              <h2>La note enchantée</h2>
+              <p>Charonne</p>
+            </div>
+            <span class="badge badge--success badge--blinking">Nouveau</span>
           </a>
-          <span>
-            <input type="checkbox" name="like-button" id="restaurant_2" />
-            <label for="restaurant_2"
-              ><i class="far fa-heart"></i> <i class="fas fa-heart"></i
+          <span class="heart-button">
+            <input
+              aria-label="Ajouter La note enchantée aux restaurants favoris"
+              type="checkbox"
+              name="like-button"
+              id="restaurant_2"
+            />
+            <label for="restaurant_2">
+              <span class="heart-button__empty">
+                <i class="far fa-heart"></i>
+              </span>
+              <span class="heart-button__filled">
+                <i class="fas fa-heart"></i> </span
             ></label>
           </span>
         </article>
-        <article>
-          <a href="/menu.html">
-            <h2>A la française</h2>
-            <p>Cité Rouge</p>
+        <article class="card">
+          <a class="card__link" href="/menu.html">
+            <div class="card__image-container">
+              <img
+                src="/assets/images/restaurants/a-la-francaise.jpg"
+                alt="Plat de A la française"
+                class="card__image"
+              />
+            </div>
+            <div class="card__description-container">
+              <h2>A la française</h2>
+              <p>Cité Rouge</p>
+            </div>
           </a>
-          <span>
-            <input type="checkbox" name="like-button" id="restaurant_3" />
-            <label for="restaurant_3"
-              ><i class="far fa-heart"></i> <i class="fas fa-heart"></i
-            ></label>
+          <span class="heart-button">
+            <input
+              aria-label="Ajouter A la française aux restaurants favoris"
+              type="checkbox"
+              name="like-button"
+              id="restaurant_3"
+            />
+            <label for="restaurant_3">
+              <span class="heart-button__empty">
+                <i class="far fa-heart"></i>
+              </span>
+              <span class="heart-button__filled">
+                <i class="fas fa-heart"></i>
+              </span>
+            </label>
           </span>
         </article>
-        <article>
-          <a href="/menu.html">
-            <h2>Le délice des sens</h2>
-            <p>Folie-Méricourt</p>
+        <article class="card">
+          <a class="card__link" href="/menu.html">
+            <div class="card__image-container">
+              <img
+                src="/assets/images/restaurants/le-delice-des-sens.jpg"
+                alt="Plat de Le délice des sens"
+                class="card__image"
+              />
+            </div>
+            <div class="card__description-container">
+              <h2>Le délice des sens</h2>
+              <p>Folie-Méricourt</p>
+            </div>
           </a>
-          <span>
-            <input type="checkbox" name="like-button" id="restaurant_4" />
-            <label for="restaurant_4"
-              ><i class="far fa-heart"></i> <i class="fas fa-heart"></i
+          <span class="heart-button">
+            <input
+              aria-label="Ajouter Le délice des sens aux restaurants favoris"
+              type="checkbox"
+              name="like-button"
+              id="restaurant_4"
+            />
+            <label for="restaurant_4">
+              <span class="heart-button__empty">
+                <i class="far fa-heart"></i>
+              </span>
+              <span class="heart-button__filled">
+                <i class="fas fa-heart"></i> </span
             ></label>
           </span>
         </article>
@@ -129,5 +230,6 @@
         </li>
       </ul>
     </footer>
+    <div class="spinner"></div>
   </body>
 </html>

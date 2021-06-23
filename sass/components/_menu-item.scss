@@ -1,0 +1,112 @@
+@import "../utils/hidden-input";
+@import "../utils/shadow";
+@import "../utils/variables";
+
+@mixin label-higlight-shadow {
+  box-shadow: 0 0.25em 0.5em lighten($tertiary-color, 5%);
+}
+
+.menu-item {
+  &__list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  input {
+    @include hidden-input;
+    &:focus ~ label {
+      @include label-higlight-shadow;
+    }
+    &:checked {
+      ~ label .menu-item {
+        &__main-content {
+          max-width: calc(100% - 5em);
+        }
+        &__checkbox {
+          transform: translate(0);
+          > i {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+  }
+  label {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    height: 4.5em;
+    border-radius: 1em;
+    @include shadow-bottom;
+    overflow-x: hidden;
+    background-color: white;
+    transition: box-shadow 0.3s ease-in-out;
+    &:active {
+      @include label-higlight-shadow;
+    }
+    &:hover {
+      &:active {
+        @include label-higlight-shadow;
+      }
+      box-shadow: 0 0.25em 0.5em lighten($tertiary-color, 10%);
+    }
+  }
+  &__main-content {
+    flex: 1 0 100%;
+    max-width: 100%;
+    min-width: 0;
+    transition: max-width 0.5s ease-in-out;
+    border-radius: 1em 0 0 1em;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.75em;
+  }
+  &__checkbox {
+    flex: 1 0 5em;
+    max-width: 5em;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $tertiary-color;
+    color: white;
+    border-radius: 0 1em 1em 0;
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+    transform: translate(100%);
+    > i {
+      font-size: 1.25em;
+      transition: transform 0.5s ease-in;
+      transform: rotate(-180deg);
+    }
+  }
+  &__name {
+    font-weight: bold;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.075em;
+  }
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    font-size: 0.95em;
+  }
+  &__text {
+    width: calc(100% - 3em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &__price {
+    font-weight: bold;
+    width: 3em;
+    text-align: right;
+  }
+}

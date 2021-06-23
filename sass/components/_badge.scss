@@ -1,0 +1,33 @@
+@import "../utils/variables";
+
+@keyframes badge_blinking {
+  50% {
+    transform: scale(1);
+  }
+  55% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  65% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+.badge {
+  padding: 0.5em 0.8em;
+  border-radius: 0.25em;
+  &--success {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: darken($tertiary-color, 45%);
+    background-color: $tertiary-color;
+  }
+  &--blinking {
+    animation: badge_blinking 2.5s infinite;
+  }
+}

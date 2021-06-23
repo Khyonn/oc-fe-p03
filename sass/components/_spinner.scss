@@ -1,0 +1,92 @@
+@use "sass:math";
+@import "../utils/variables";
+
+@function concat($old, $new, $is-last) {
+  @if ($is-last) {
+    @return "#{$old}#{$new}";
+  }
+  @return "#{$old}#{$new},";
+}
+// voir cours de trigonométrie
+@function getCoordinates($angle, $ray) {
+  $x: math.cos($angle) * $ray;
+  $y: math.sin($angle) * $ray;
+  @return "#{$x} #{$y}";
+}
+
+@function getPositions($circle-ray, $dots-number, $increment) {
+  $positions: "";
+  $max: $dots-number - 1;
+  @for $i from 0 through $max {
+    $positions: concat(
+      $positions,
+      getCoordinates(($increment * $i), $circle-ray),
+      $i == $max
+    );
+  }
+  @return unquote($positions);
+}
+
+@function getDot($color, $size, $blur-size) {
+  @return radial-gradient(
+    circle,
+    $color $size + 0px,
+    transparent $blur-size + 0px
+  );
+}
+
+@function getDots($dots-number, $dot-size, $color) {
+  $dots: "";
+  $max: $dots-number - 1;
+
+  @for $i from 0 through $max {
+    $blur-size: 1;
+    @if $i < math.div($max, 3) {
+      $blur-size: 1;
+    } @else if $i < $max * math.div(2, 3) {
+      $blur-size: 2;
+    } @else {
+      $blur-size: 3;
+    }
+    $dots: concat(
+      $dots,
+      getDot($color, $dot-size + 1 - $blur-size, $blur-size),
+      $i == $max
+    );
+  }
+  @return unquote($dots);
+}
+
+@keyframes spinner_spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffffce;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: spinner_spinning 3s infinite linear;
+    background-image: getDots(10, 4, $primary-color);
+    background-position: getPositions(35px, 10, -30deg);
+  }
+}

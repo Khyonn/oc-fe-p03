@@ -1,0 +1,18 @@
+@import "../utils/variables";
+
+.location-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  background-color: $bg-color;
+  &__field {
+    border: unset;
+    background-color: unset;
+    width: 8em;
+    margin-left: 1em;
+    font-size: 1em;
+    font-family: $main-fontfamily;
+    color: black;
+  }
+}

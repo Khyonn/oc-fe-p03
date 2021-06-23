@@ -1,0 +1,115 @@
+@use "sass:math";
+@import "../utils/variables";
+
+#usage-process {
+  padding: 2em 1em;
+  .step-list {
+    max-width: 33em;
+  }
+}
+
+#restaurants {
+  background-color: $bg-color-light;
+  padding: 2em 1em;
+  .card {
+    position: relative;
+    height: 16.5em;
+    margin-left: 0;
+    margin-right: 0;
+    &__link {
+      height: 100%;
+      text-decoration: none;
+      color: unset;
+    }
+    &__image-container {
+      flex: 0 0 unquote("#{(math.div(5, 7) * 100)}%");
+    }
+    &__description-container {
+      flex: 0 0 unquote("#{(math.div(2, 7) * 100)}%");
+      padding: 0.1em 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    h2 {
+      font-size: 1.1em;
+      margin: 0;
+      margin-bottom: 0.15em;
+      font-weight: bold;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+      font-weight: 300;
+      font-size: 1.05em;
+    }
+    .badge {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+    }
+    &__link:active ~ .heart-button {
+      transform: translate(-100%, -50%) scale(0.9);
+    }
+  }
+  .heart-button {
+    position: absolute;
+    top: unquote("#{(math.div(6, 7) * 100)}%");
+    right: 0;
+    transform: translate(-100%, -50%);
+    transition: transform 0.2s ease-in-out;
+    font-size: 1.5em;
+  }
+}
+
+// Les lignes qui suivent ont pour seul but de tester l'affichage d'un loader
+@keyframes displaying-spinner_body {
+  0% {
+    overflow: hidden;
+  }
+  99% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: unset;
+  }
+}
+
+@keyframes displaying-spinner_spinner {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  99% {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+.spinner {
+  background-color: white;
+  animation: displaying-spinner_spinner 3s forwards linear;
+  &::before {
+    position: absolute;
+    content: "Chargement en cours ...";
+    font-family: $main-fontfamily;
+    font-weight: 500;
+    color: $primary-color;
+    left: 50%;
+    top: 60%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%);
+  }
+}
+body {
+  animation: displaying-spinner_body 3s forwards linear;
+}

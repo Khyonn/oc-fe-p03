@@ -1,0 +1,29 @@
+@import "../utils/shadow";
+
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  background-image: linear-gradient(-10deg, $primary-color, $secondary-color);
+  border: none;
+  padding: 1em 2em;
+  border-radius: 3em;
+  color: white;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 1em;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  @include shadow-bottom;
+  &:hover,
+  &:focus {
+    box-shadow: 0 0.1em 0.75em lighten(black, 60%);
+    outline: none;
+  }
+  &:active {
+    background-image: linear-gradient(
+      -10deg,
+      darken($primary-color, 5%),
+      darken($secondary-color, 5%)
+    );
+    transform: scale(0.95);
+  }
+}
