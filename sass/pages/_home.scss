@@ -1,5 +1,6 @@
 @use "sass:math";
 @import "../utils/variables";
+@import "../utils/breakpoints";
 
 #usage-process {
   padding: 2em 1em;
@@ -59,6 +60,72 @@
     transform: translate(-100%, -50%);
     transition: transform 0.2s ease-in-out;
     font-size: 1.5em;
+  }
+}
+
+main {
+  @include desktops {
+    display: grid;
+    grid-template-areas:
+      "a a"
+      "b c"
+      "d d";
+    grid-template-columns: 2fr 1fr;
+    #location {
+      grid-area: a;
+      justify-content: start;
+      padding-left: 2em;
+      border-radius: 0 0 0.5em 0;
+    }
+    #introduction {
+      grid-area: b;
+      display: flex;
+      justify-content: center;
+      background-color: white;
+    }
+    #usage-process {
+      grid-area: c;
+      padding-top: 0;
+    }
+    #restaurants {
+      background-color: white;
+      padding: 1em;
+      grid-area: d;
+      .cards-container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .card {
+        flex: 0 0 32%;
+      }
+    }
+  }
+
+  @include only-tablets {
+    #restaurants {
+      .cards-container {
+        overflow: auto;
+        width: 100%;
+        flex-wrap: nowrap;
+        &::-webkit-scrollbar {
+          height: 5px;
+        }
+      }
+      .card {
+        display: inline-flex;
+        flex: 1 0 20em;
+        margin: 1em;
+        height: 15em;
+      }
+    }
+  }
+  @include tablets {
+    #restaurants {
+      .cards-container {
+        display: flex;
+        flex-direction: row;
+      }
+    }
   }
 }
 
