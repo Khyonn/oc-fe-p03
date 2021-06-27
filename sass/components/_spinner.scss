@@ -69,24 +69,51 @@
   }
 }
 
-.spinner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffffce;
+$spinner-dots-number: 10;
+$spinner-dots-increment: -30deg;
+$spinner-circle-radius: 35px;
+$dots-circle-diameter: 4px;
+$spinner-radius: $spinner-circle-radius + $dots-circle-diameter;
+$spinner-size: $spinner-radius * 2;
 
-  &::after {
-    content: "";
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: $spinner-size;
+  height: $spinner-size;
+  transform: translate(-50%, -50%);
+  &__container {
+    &--fixed {
+      position: fixed;
+    }
     position: absolute;
-    display: block;
+    border-radius: inherit;
+    background-color: #ffffffce;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: calc(50% - #{$spinner-radius});
+    left: calc(50% - #{$spinner-radius});
+    width: $spinner-size;
+    height: $spinner-size;
     animation: spinner_spinning 3s infinite linear;
-    background-image: getDots(10, 4, $primary-color);
-    background-position: getPositions(35px, 10, -30deg);
+    background-image: getDots(
+      $spinner-dots-number,
+      $dots-circle-diameter,
+      $primary-color
+    );
+    background-position: getPositions(
+      $spinner-circle-radius,
+      $spinner-dots-number,
+      $spinner-dots-increment
+    );
   }
 }

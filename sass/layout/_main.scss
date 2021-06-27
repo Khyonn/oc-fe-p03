@@ -1,0 +1,8 @@
+@import "../utils/breakpoints";
+
+@include desktops {
+  main {
+    max-width: 70em; //1130px
+    margin: auto;
+  }
+}

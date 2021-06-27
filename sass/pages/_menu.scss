@@ -1,5 +1,6 @@
 @use "sass:math";
 @import "../utils/variables";
+@import "../utils/shadow";
 @import "../utils/breakpoints";
 
 @keyframes menu-item_appearing {
@@ -14,96 +15,68 @@
     opacity: 1;
   }
 }
-.menu-image {
+
+main {
+  position: relative;
+  background-color: $bg-color-light;
+}
+
+#menu-image {
   object-fit: cover;
   width: 100%;
   height: 100%;
 
-  &-container {
+  &__container {
     width: 100%;
     height: 18em;
     overflow: hidden;
   }
 }
-main {
-  background-color: $bg-color-light;
-  position: relative;
-  @include tablets {
-    background-color: white;
-    $img-height: 30em;
-    .menu-image-container {
-      height: $img-height;
-      position: absolute;
-    }
-    #order-form-container {
-      max-width: 33em;
-      margin: auto;
-      top: math.div($img-height, 2);
-      margin-bottom: math.div($img-height, 2) + 1;
-      border-radius: 2em;
-      padding: 2em;
-    }
-  }
-  @include desktops {
-    $top-margin: 20em;
-    .menu-image-container {
-      height: $top-margin;
-    }
-    #order-form-container {
-      top: $top-margin;
-      max-width: unset;
-      margin: 0;
-      margin-bottom: $top-margin + 1;
-      border-radius: 0 0 1em 1em;
-    }
-  }
-}
 
-h2 {
-  position: relative;
-  font-weight: 300;
-  text-transform: uppercase;
-  font-size: 1em;
-  margin: 1.5em 0;
-  &::after {
-    position: absolute;
-    content: "";
-    width: 2.5em;
-    bottom: -5px;
-    left: 0;
-    border-bottom: 3px solid $tertiary-color;
+#restaurant-name {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .heart-button {
+      font-size: 1.5em;
+    }
   }
 }
 
 #order-form {
-  &-container {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    position: relative;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1em;
+    margin: 1.5em 0;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 2.5em;
+      bottom: -5px;
+      left: 0;
+      border-bottom: 3px solid $tertiary-color;
+    }
+  }
+
+  &__container {
     position: relative;
     top: -4em;
     background-color: $bg-color-light;
     border-radius: 2em 2em 0 0;
     padding: 0.5em 1.5em;
   }
-  display: flex;
-  flex-direction: column;
-  @include desktops {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    section {
-      flex: 0 0 30%;
-      max-width: 30%;
-    }
-  }
-  .menu-item + .menu-item {
-    margin-top: 1em;
-  }
-  button {
-    margin-top: 2em;
-    align-self: center;
-  }
 
   .menu-item {
     opacity: 0;
+    & + .menu-item {
+      margin-top: 1em;
+    }
     &:first-of-type {
       animation: menu-item_appearing 0.8s ease-out forwards;
     }
@@ -114,13 +87,61 @@ h2 {
       animation: menu-item_appearing 0.8s 200ms ease-out forwards;
     }
   }
+
+  button {
+    margin-top: 2em;
+    align-self: center;
+  }
 }
 
-#restaurant-name-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .heart-button {
-    font-size: 1.5em;
+@include tablets {
+  $img-height: 30em;
+
+  main {
+    background-color: white;
+  }
+
+  #menu-image {
+    &__container {
+      height: $img-height;
+      position: absolute;
+    }
+  }
+  #order-form {
+    &__container {
+      max-width: 33em;
+      margin: auto;
+      top: math.div($img-height, 2);
+      margin-bottom: math.div($img-height, 2) + 2;
+      border-radius: 2em;
+      padding: 2em;
+      @include shadow-bottom;
+    }
+  }
+}
+
+@include desktops {
+  $top-margin: 20em;
+  #menu-image {
+    &__container {
+      height: $top-margin;
+      z-index: 1; // to avoid order-form shadow
+    }
+  }
+  #order-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    section {
+      flex: 0 0 30%;
+      max-width: 30%;
+    }
+    &__container {
+      top: $top-margin;
+      max-width: unset;
+      margin: 0;
+      margin-bottom: $top-margin + 2;
+      border-radius: 0 0 1em 1em;
+    }
   }
 }

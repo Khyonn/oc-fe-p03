@@ -1,0 +1,29 @@
+{
+  "name": "oc-fe-p03",
+  "version": "1.0.0",
+  "description": "Intégration d'une maquette avec animations",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass sass:assets/styles --style=compressed --no-source-map",
+    "autoprefix": "postcss assets/styles/*.css --use autoprefixer -r --no-map",
+    "start": "sass sass:assets/styles --style=compressed --watch",
+    "build": "npm run sass && npm run autoprefix",
+    "heeelp": "postcss --help"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khyonn/oc-fe-p03.git"
+  },
+  "author": "Khyonn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khyonn/oc-fe-p03/issues"
+  },
+  "homepage": "https://github.com/Khyonn/oc-fe-p03#readme",
+  "devDependencies": {
+    "autoprefixer": "10.2.6",
+    "postcss": "8.3.5",
+    "postcss-cli": "8.3.1",
+    "sass": "1.35.1"
+  }
+}

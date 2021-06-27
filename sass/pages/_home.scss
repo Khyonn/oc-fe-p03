@@ -2,6 +2,43 @@
 @import "../utils/variables";
 @import "../utils/breakpoints";
 
+#location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  background-color: $bg-color;
+  &__field {
+    border: unset;
+    background-color: unset;
+    width: 8em;
+    margin-left: 1em;
+    font-size: 1em;
+    font-family: $main-fontfamily;
+    color: black;
+  }
+}
+
+#introduction {
+  background-color: $bg-color-light;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1,
+  p {
+    text-align: center;
+  }
+  h1 {
+    margin: 0;
+    padding: 0 1em;
+  }
+  p {
+    font-weight: 300;
+    font-size: 1.1em;
+  }
+}
+
 #usage-process {
   padding: 2em 1em;
   .step-list {
@@ -63,120 +100,86 @@
   }
 }
 
-main {
-  @include desktops {
+@include only-tablets {
+  #restaurants {
+    .cards-container {
+      overflow: auto;
+      width: 100%;
+      flex-wrap: nowrap;
+      &::-webkit-scrollbar {
+        height: 5px;
+      }
+    }
+    .card {
+      display: inline-flex;
+      flex: 1 0 20em;
+      margin: 1em;
+      height: 15em;
+    }
+  }
+
+  #usage-process {
+    .step-list {
+      flex-direction: row;
+      justify-content: space-around;
+      max-width: unset;
+      &__item {
+        flex: 1 0 30%;
+        max-width: 30%;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@include tablets {
+  #restaurants {
+    .cards-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}
+
+@include desktops {
+  main {
     display: grid;
     grid-template-areas:
       "a a"
       "b c"
       "d d";
     grid-template-columns: 2fr 1fr;
-    #location {
-      grid-area: a;
-      justify-content: start;
-      padding-left: 2em;
-      border-radius: 0 0 0.5em 0;
-    }
-    #introduction {
-      grid-area: b;
-      display: flex;
-      justify-content: center;
-      background-color: white;
-    }
-    #usage-process {
-      grid-area: c;
-      padding-top: 0;
-    }
-    #restaurants {
-      background-color: white;
-      padding: 1em;
-      grid-area: d;
-      .cards-container {
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-      .card {
-        flex: 0 0 32%;
-      }
-    }
   }
 
-  @include only-tablets {
-    #restaurants {
-      .cards-container {
-        overflow: auto;
-        width: 100%;
-        flex-wrap: nowrap;
-        &::-webkit-scrollbar {
-          height: 5px;
-        }
-      }
-      .card {
-        display: inline-flex;
-        flex: 1 0 20em;
-        margin: 1em;
-        height: 15em;
-      }
+  #location {
+    grid-area: a;
+    justify-content: start;
+    padding-left: 2em;
+    border-radius: 0 0 0.5em 0;
+  }
+
+  #introduction {
+    grid-area: b;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+  }
+
+  #usage-process {
+    grid-area: c;
+    padding-top: 0;
+  }
+
+  #restaurants {
+    background-color: white;
+    padding: 1em;
+    grid-area: d;
+    .cards-container {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .card {
+      flex: 0 0 32%;
     }
   }
-  @include tablets {
-    #restaurants {
-      .cards-container {
-        display: flex;
-        flex-direction: row;
-      }
-    }
-  }
-}
-
-// Les lignes qui suivent ont pour seul but de tester l'affichage d'un loader
-@keyframes displaying-spinner_body {
-  0% {
-    overflow: hidden;
-  }
-  99% {
-    overflow: hidden;
-  }
-  100% {
-    overflow: unset;
-  }
-}
-
-@keyframes displaying-spinner_spinner {
-  0% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  99% {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  100% {
-    opacity: 0;
-    display: none;
-    width: 0;
-    height: 0;
-  }
-}
-.spinner {
-  background-color: white;
-  animation: displaying-spinner_spinner 3s forwards linear;
-  &::before {
-    position: absolute;
-    content: "Chargement en cours ...";
-    font-family: $main-fontfamily;
-    font-weight: 500;
-    color: $primary-color;
-    left: 50%;
-    top: 60%;
-    width: 100%;
-    text-align: center;
-    transform: translate(-50%);
-  }
-}
-body {
-  animation: displaying-spinner_body 3s forwards linear;
 }
