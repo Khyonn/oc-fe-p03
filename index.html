@@ -13,9 +13,12 @@
       name="description"
       content="Intégration d'une maquette avec animations, troisième projet du parcous Développeur Front-end d'OpenClassrooms"
     />
-    <link rel="stylesheet" href="/assets/styles/vendor.css" />
-    <link rel="stylesheet" href="/assets/styles/common.css" />
-    <link rel="stylesheet" href="/assets/styles/home.css" />
+    <link rel="stylesheet" href="assets/styles/vendors.css" />
+    <link rel="stylesheet" href="assets/styles/common.css" />
+    <link rel="stylesheet" href="assets/styles/home.css" />
+    <noscript>
+      <link rel="stylesheet" href="assets/styles/special-spinner.css" />
+    </noscript>
     <title>Ohmyfood!</title>
   </head>
   <body>
@@ -23,8 +26,8 @@
       <nav class="main-nav">
         <a class="main-nav__brand-link" href="/">
           <img
-            src="/assets/images/logo/ohmyfood.png"
-            srcset="/assets/images/logo/ohmyfood@2x.svg"
+            src="assets/images/logo/ohmyfood.png"
+            srcset="assets/images/logo/ohmyfood@2x.svg"
             alt="Logo Ohmyfood"
           />
         </a>
@@ -32,10 +35,10 @@
     </header>
 
     <main>
-      <form id="location" class="location-form">
+      <form id="location">
         <span><i class="fas fa-map-marker-alt"></i></span>
         <input
-          class="location-form__field"
+          id="location__field"
           type="text"
           value="Paris, Belleville"
           aria-label="Location"
@@ -81,11 +84,11 @@
         <h1>Restaurants</h1>
         <div class="cards-container">
           <article class="card">
-            <a class="card__link" href="/menu.html">
+            <a class="card__link" href="la-palette-du-gout.html">
               <div class="card__image-container">
                 <img
                   class="card__image"
-                  src="/assets/images/restaurants/la-palette-du-gout.jpg"
+                  src="assets/images/restaurants/small/la-palette-du-gout.jpg"
                   alt="Plat de La palette du goût"
                 />
               </div>
@@ -112,11 +115,11 @@
             </span>
           </article>
           <article class="card">
-            <a class="card__link" href="/menu.html">
+            <a class="card__link" href="la-note-enchantee.html">
               <div class="card__image-container">
                 <img
                   class="card__image"
-                  src="/assets/images/restaurants/la-note-enchantee.jpg"
+                  src="assets/images/restaurants/small/la-note-enchantee.jpg"
                   alt="Plat de La note enchantée"
                 />
               </div>
@@ -143,10 +146,10 @@
             </span>
           </article>
           <article class="card">
-            <a class="card__link" href="/menu.html">
+            <a class="card__link" href="a-la-francaise.html">
               <div class="card__image-container">
                 <img
-                  src="/assets/images/restaurants/a-la-francaise.jpg"
+                  src="assets/images/restaurants/small/a-la-francaise.jpg"
                   alt="Plat de A la française"
                   class="card__image"
                 />
@@ -174,10 +177,10 @@
             </span>
           </article>
           <article class="card">
-            <a class="card__link" href="/menu.html">
+            <a class="card__link" href="le-delice-des-sens.html">
               <div class="card__image-container">
                 <img
-                  src="/assets/images/restaurants/le-delice-des-sens.jpg"
+                  src="assets/images/restaurants/small/le-delice-des-sens.jpg"
                   alt="Plat de Le délice des sens"
                   class="card__image"
                 />
@@ -232,6 +235,8 @@
         </li>
       </ul>
     </footer>
-    <div class="spinner"></div>
+    <noscript>
+      <div class="spinner"></div>
+    </noscript>
   </body>
 </html>

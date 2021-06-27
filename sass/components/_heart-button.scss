@@ -51,7 +51,6 @@
             $secondary-color
           );
           background-clip: text;
-          -webkit-background-clip: text; // TODO: supprimer cette ligne et utiliser autoprefixer
           color: transparent;
         }
       }

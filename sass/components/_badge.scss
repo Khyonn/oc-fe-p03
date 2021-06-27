@@ -24,8 +24,8 @@
   &--success {
     font-size: 0.9em;
     font-weight: bold;
-    color: darken($tertiary-color, 45%);
-    background-color: $tertiary-color;
+    color: darken($tertiary-color, 50%);
+    background-color: lighten($tertiary-color, 15%);
   }
   &--blinking {
     animation: badge_blinking 2.5s infinite;
