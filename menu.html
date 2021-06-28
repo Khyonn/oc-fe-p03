@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="assets/styles/vendors.css" />
     <link rel="stylesheet" href="assets/styles/common.css" />
     <link rel="stylesheet" href="assets/styles/menu.css" />
+    <link
+      rel="icon"
+      href="assets/images/logo/ohmyfood@2x.svg"
+      type="image/svg+xml"
+    />
     <title>{{restaurant.name}} - Ohmyfood!</title>
   </head>
   <body>
@@ -72,7 +77,7 @@
             ></label>
           </span>
         </div>
-        <form id="order-form" action="/{{restaurant.pageUrl}}">
+        <form id="order-form" action="{{restaurant.pageUrl}}">
           <section id="starter">
             <h2>Entrées</h2>
             <ul class="menu-item__list">
